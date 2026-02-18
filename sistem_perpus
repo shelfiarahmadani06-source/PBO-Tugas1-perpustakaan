@@ -1,0 +1,39 @@
+from model_perpus import buku, anggota, perpustakaan
+
+# membuat objek perpustakaan
+perpus_uin = perpustakaan("perpustakaan UIN Suska Riau")
+
+# membuat objek buku
+buku1 = buku("Pemrograman Python", "Guido Van Rossum",5)
+buku2 = buku("Dasar Pemrograman Python", "Jubilee Enterprise",3)
+
+#masukkan buku ke dalam perpustakaan
+perpus_uin.tambah_buku(buku1)
+perpus_uin.tambah_buku(buku2)
+
+# membuat objek anggota 
+anggota_1 = anggota("shelfia rahmadani", "12550120335", "semester 2")
+anggota_2 = anggota("siti nurhaliza", "230101003", "semester 4")
+
+# menampilkan informasi awal buku
+print("--- Informasi awal buku ---")
+perpus_uin.tampilkan_semua_buku()
+
+# proses peminjaman buku
+print("\n---proses peminjaman buku---")
+anggota_1.pinjam_buku(buku1)
+anggota_2.pinjam_buku(buku2)
+
+# cek status buku setelah dipinjam
+print("\n---informasi buku setelah dipinjam---")
+perpus_uin.tampilkan_semua_buku()
+
+# proses pengembalian buku
+print("\n---proses pengembalian buku---")
+anggota_1.kembalikan_buku()
+anggota_2.kembalikan_buku()
+
+# cek status akhir
+print("\n---status akhir buku---")
+perpus_uin.tampilkan_semua_buku()
+
