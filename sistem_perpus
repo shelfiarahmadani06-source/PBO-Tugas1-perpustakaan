@@ -15,6 +15,11 @@ perpus_uin.tambah_buku(buku2)
 anggota_1 = anggota("shelfia rahmadani", "12550120335", "semester 2")
 anggota_2 = anggota("siti nurhaliza", "230101003", "semester 4")
 
+# menampilkan informasi awal anggota
+print("--- Informasi awal anggota ---")
+anggota_1.tampilkan_info()
+anggota_2.tampilkan_info()
+
 # menampilkan informasi awal buku
 print("--- Informasi awal buku ---")
 perpus_uin.tampilkan_semua_buku()
@@ -23,6 +28,11 @@ perpus_uin.tampilkan_semua_buku()
 print("\n---proses peminjaman buku---")
 anggota_1.pinjam_buku(buku1)
 anggota_2.pinjam_buku(buku2)
+
+# menampilkan siapa saja yang meminjam buku
+print("\n---informasi anggota setelah meminjam buku---")
+anggota_1.tampilkan_info()
+anggota_2.tampilkan_info()
 
 # cek status buku setelah dipinjam
 print("\n---informasi buku setelah dipinjam---")
@@ -36,4 +46,33 @@ anggota_2.kembalikan_buku()
 # cek status akhir
 print("\n---status akhir buku---")
 perpus_uin.tampilkan_semua_buku()
+
+# menampilkan informasi anggota 
+print("\n---informasi anggota---")
+anggota_1.tampilkan_info()
+anggota_2.tampilkan_info()
+
+# cek ketersediaan buku
+print("\n---cek ketersediaan buku---")
+print(f"Apakah buku '{buku1.judul}' tersedia? {'Ya' if buku1.cek_ketersediaan() else 'Tidak'}")
+print(f"Apakah buku '{buku2.judul}' tersedia? {'Ya' if buku2.cek_ketersediaan() else 'Tidak'}")
+
+# tambahkan buku baru ke perpustakaan
+buku3 = buku("Algoritma dan Struktur Data", "Robert Lafore", 4)
+perpus_uin.tambah_buku(buku3)
+print("\n---informasi buku setelah penambahan---")
+perpus_uin.tampilkan_semua_buku()
+
+# tampilkan semua buku yang tersedia di perpustakaan
+print("\n---buku yang tersedia di perpustakaan---")
+perpus_uin.tampilkan_buku_tersedia()
+
+# shelfia mencoba meminjam buku yang tidak tersedia
+print("\n---shelfia mencoba meminjam buku yang tidak tersedia---")
+anggota_1.pinjam_buku(buku2)  # buku2 sudah dipinjam oleh siti nurhaliza, jadi tidak tersedia  
+
+# nurhaliza mencoba meminjam buku3 yang tersedia
+print("\n---siti nurhaliza mencoba meminjam buku yang tersedia---")
+anggota_2.pinjam_buku(buku3)  # buku3 tersedia, jadi bisa dipinjam oleh siti nurhaliza
+
 
